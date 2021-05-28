@@ -959,19 +959,19 @@ B_cell* B_cell::proliferate(parameters& p, lattice& l, double time,
                                     // I unnderstud from the algorythm that if dividion is symetric at least one dauguter cell will get IamAghigh = true...
                 daughter_Bcell->IamHighAg = false; //ELENA: TESTING ABOVE THEORY : Are CCs that recycled output or are CBs that recycled and divide assymetrically output?
                 //Elena: network: Divide TF levels symetrically among daughter cells
-                BCL6 = all_bcl6/2;
-                daughter_Bcell->BCL6 = all_bcl6 - BCL6;
-                IRF4 = all_irf4/2;
-                daughter_Bcell->IRF4 = all_irf4 - IRF4;
-                BLIMP1 = all_blimp1/2;
-                daughter_Bcell->BLIMP1 = all_blimp1 - BLIMP1;
-                //Jiaojiao: divide TF asymmetrically under symmetric division of Ag.
-//                BCL6 = p.par[polarityBCL6]*all_bcl6;
+//                BCL6 = all_bcl6/2;
 //                daughter_Bcell->BCL6 = all_bcl6 - BCL6;
-//                IRF4 = p.par[polarityIRF4]*all_irf4;
+//                IRF4 = all_irf4/2;
 //                daughter_Bcell->IRF4 = all_irf4 - IRF4;
-//                BLIMP1 = p.par[polarityBLIMP1]*all_blimp1;
+//                BLIMP1 = all_blimp1/2;
 //                daughter_Bcell->BLIMP1 = all_blimp1 - BLIMP1;
+                //Jiaojiao: divide TF asymmetrically under symmetric division of Ag.
+                BCL6 = p.par[polarityBCL6]*all_bcl6;
+                daughter_Bcell->BCL6 = all_bcl6 - BCL6;
+                IRF4 = p.par[polarityIRF4]*all_irf4;
+                daughter_Bcell->IRF4 = all_irf4 - IRF4;
+                BLIMP1 = p.par[polarityBLIMP1]*all_blimp1;
+                daughter_Bcell->BLIMP1 = all_blimp1 - BLIMP1;
                 //Jiaojioa: end
             }
             l.putcellat(daughter_Bcell);                   // Update lattice
