@@ -3,20 +3,28 @@ _In preparation_
 
 This software accompanies the publication
 
-**Multiscale modelling of germinal center recapitulates the temporal switch from memory B cells to plasma cells differentiation controlled by antigen affinity-based Tfh cell help.**
+**Coupled antigen and BLIMP1 asymmetric division with a large segregation between daughter cells recapitulates the temporal transition from memory B cells to plasma cells and transzone migration in the germinal center.**
 
-Elena Merino, Danial Lashgari, Rodrigo Garcia Valiente, Xuefeng Gao, Fabien Crauste, Philip A Robert, Michael Meyer-Hermann, Maria Rodriguez Martinez, Marieke van Ham, Jeroen E.J. Guikema, Huub Hoefsloot, Antoine H.C. van Kampen
+Elena Merino Tejero, Danial Lashgari, Rodrigo García-Valiente, Jiaojiao He, Philippe A. Robert,  Michael Meyer-Hermann, Jeroen E.J. Guikema, Huub Hoefsloot, Antoine H.C. van Kampen
 
 # Project
-## MSM_PCdifferentiation
+## AsymmetricDivision
 
 This repository includes code ONLY of the multiscale model of plasma cell diferentiation in Germinal Centers. The Agent-based
 model is based on Mafalda, which is based on [Hyphasma](https://www.helmholtz-hzi.de/en/research/research-topics/immune-response/systems-immunology/our-research/) (e.g., Michael-Meyer Hermann, 2012).  
 The GRN is based on Martinez et al., 2012. It is posible to simulate 2 scenarios: Plasma cell diferentiation based on 
 Ag inheritance or on BLIMP1 level.
 
-CD40 signal can be modeled 2 ways: Fixed CD40 (=50, 10) or CD40 dependent on affinity (=affinity*50). 
-The switch from one to the other has to be done inside the code (for now).
+CD40 signal can is dependent on affinity (=affinity*50). 
+Different polarity levels fo reach TF can be defined through bcinflow09.par by modifying the following parameters:
+ .  BLIMP1 polarity for B cell dividing Ag Asymmetrically [0-1]
+ .  IRF4 polarity for B cell dividing Ag Asymmetrically [0-1]
+ .  BCL6 polarity for B cell dividing Ag Asymmetrically [0-1]
+
+
+In the main code Simulations 3 to 6 (Coupled asymmetric division) can be simulated.  Two additional branches where created for the remaininng simulations:
+ . Uncoupled asymmetric division (Simulations 7 to 9)
+ . Symmetric Ag (a/symmetric TF) division (Simulations 1 and 2)
 
 ## Software
 All software is written in C++
